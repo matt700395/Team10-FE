@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Header from "./Header";
 import {
   Button,
@@ -20,8 +20,46 @@ import {
 import { AddIcon } from "@chakra-ui/icons";
 import CategoryBlock from "./CategoryBlock";
 import axios from "axios";
+import dummy from "../test.json";
 
-const MakeMyProfile = () => {
+const Edit = () => {
+  const [profile, setProfile] = useState();
+  const [info, setInfo] = useState();
+
+  // Edit 페이지 렌더링 시 user 정보 가져오기
+  useEffect(() => {
+    // axios.get("/mypage").then((response) => setProfile(response.data));
+
+    setInfo(temp);
+  }, []);
+
+  /* 프로필 json 구성 변경 (서버와 연동 후 dummy->profile로 수정) */
+
+  const temp = [
+    {
+      category: "name",
+      content: dummy.name,
+    },
+    {
+      category: "classname",
+      content: dummy.classname,
+    },
+  ];
+
+  // tag가 존재한다면
+  if (dummy.tag) {
+    const length = Object.keys(dummy.tag).length;
+    const keys = Object.keys(dummy.tag);
+    for (let i = 0; i < length; i++) {
+      temp.push({
+        category: keys[i],
+        content: dummy.tag[keys[i]],
+      });
+    }
+  }
+
+  /* 프로필 json 구성 변경 */
+
   const {
     isOpen: isOpenAddModal,
     onOpen: onOpenAddModal,
@@ -33,13 +71,6 @@ const MakeMyProfile = () => {
     onOpen: onOpenSaveModal,
     onClose: onCloseSaveModal,
   } = useDisclosure();
-
-  const [info, setInfo] = useState([
-    {
-      category: "name",
-      content: "이름",
-    },
-  ]);
 
   const addInfoCategory = (category) => {
     setInfo([...info, { category: category, content: "" }]);
@@ -73,7 +104,7 @@ const MakeMyProfile = () => {
 
     console.log(request);
 
-    // axios.post("url", { request }).then((response) => {
+    // axios.patch("/update", { request }).then((response) => {
     //   console.log(response);
     // });
   };
@@ -101,7 +132,7 @@ const MakeMyProfile = () => {
 
   return (
     <Container centerContent>
-      <Header title="Make My Profile" />
+      <Header title="EDIT" />
 
       {/* 프로필 이미지 업로드 */}
       <Container>
@@ -133,7 +164,7 @@ const MakeMyProfile = () => {
             info={info}
             onRemove={onRemove}
             addInfo={addInfo}
-            profile={null}
+            profile={profile}
           />
         </FormControl>
       </Container>
@@ -270,4 +301,4 @@ const MakeMyProfile = () => {
   );
 };
 
-export default MakeMyProfile;
+export default Edit;
