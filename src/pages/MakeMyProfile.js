@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import Header from "./Header";
+import Header from "../components/Header";
 import {
   Button,
   Container,
@@ -18,7 +18,7 @@ import {
   FormControl,
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
-import CategoryBlock from "./CategoryBlock";
+import CategoryBlock from "../components/CategoryBlock";
 import axios from "axios";
 
 const MakeMyProfile = () => {

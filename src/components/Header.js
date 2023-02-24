@@ -26,7 +26,7 @@ const Header = ({ title }) => {
           <Link to="/">
             <MenuItem fontSize="sm">my page</MenuItem>
           </Link>
-          <Link to="/">
+          <Link to="/search">
             <MenuItem fontSize="sm">search</MenuItem>
           </Link>
           <Link to="/">
