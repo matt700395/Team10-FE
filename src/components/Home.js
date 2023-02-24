@@ -17,6 +17,7 @@ const Home = () => {
         <Link to="/make-my-profile">
           <Button colorScheme="yellow">make my own</Button>
         </Link>
+        <Link to="/edit"></Link>
       </ButtonGroup>
     </Flex>
   );

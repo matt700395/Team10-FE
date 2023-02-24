@@ -45,6 +45,11 @@ const MakeMyProfile = () => {
     setInfo([...info, { category: category, content: "" }]);
   };
 
+  const addInfo = (category, content) => {
+    var index = info.findIndex((obj) => obj.category === category);
+    info[index].content = content;
+  };
+
   const onRemove = (category) => {
     setInfo(info.filter((info) => info.category !== category));
   };
@@ -124,7 +129,7 @@ const MakeMyProfile = () => {
       {/* my block */}
       <Container mt="20px">
         <FormControl onSubmit={saveMyProfile}>
-          <CategoryBlock info={info} onRemove={onRemove} />
+          <CategoryBlock info={info} onRemove={onRemove} addInfo={addInfo} />
         </FormControl>
       </Container>
 

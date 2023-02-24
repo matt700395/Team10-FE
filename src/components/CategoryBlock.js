@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Input,
   InputGroup,
@@ -9,7 +9,9 @@ import {
 } from "@chakra-ui/react";
 import { MinusIcon } from "@chakra-ui/icons";
 
-const CategoryBlock = ({ info, onRemove }) => {
+const CategoryBlock = ({ info, onRemove, addInfo }) => {
+  const [value, setValue] = useState("");
+
   const infoList = info.map((info) => (
     <InputGroup key={info.category}>
       <InputLeftAddon width="20%" children={info.category} />
@@ -21,7 +23,15 @@ const CategoryBlock = ({ info, onRemove }) => {
         <Input type="text" name={info.category} placeholder={info.category} />
       )} */}
 
-      <Input type="text" name={info.category} placeholder={info.category} />
+      <Input
+        type="text"
+        name={info.category}
+        placeholder={info.category}
+        onChange={(e) => {
+          setValue(e.target.value);
+          addInfo(info.category, value);
+        }}
+      />
 
       {/* name 외의 블록에만 delete 버튼 활성화 */}
       {info.category !== "name" && (
