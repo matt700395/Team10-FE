@@ -4,10 +4,12 @@ import Home from "./pages/Home";
 import { Flex } from "@chakra-ui/react";
 import Edit from "./pages/Edit";
 import Search from "./pages/Search";
+import GlobalStyle from "./styles/GlobalStyle";
 
 function App() {
   return (
     <Flex align="center" justify="center">
+      <GlobalStyle />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/make-my-profile" element={<MakeMyProfile />} />
