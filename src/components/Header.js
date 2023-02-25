@@ -38,7 +38,7 @@ const Header = ({ title }) => {
           mr="10px"
         />
         <MenuList backgroundColor="#FDEE92" width="50%">
-          <Link to="/">
+          <Link to="/MyCard">
             <MenuItem
               fontSize="sm"
               backgroundColor="#FDEE92"
