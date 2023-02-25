@@ -20,8 +20,8 @@ const Search = () => {
   );
 
   const [friends, setFriends] = useState([
-    { name: "유빈", profileImage: require("../assets/profile.png") },
-    { name: "상우", profileImage: require("../assets/profile.png") },
+    { name: "유빈", profileImage: require("../assets/profile_2.jpg") },
+    { name: "상우", profileImage: require("../assets/profile_1.png") },
     { name: "지현", profileImage: require("../assets/profile.png") },
   ]);
 
@@ -88,7 +88,8 @@ const Search = () => {
 
       {/* 친구 목록 카드 */}
       <Container
-        maxW="md"
+        maxW="100%"
+        p="0"
         mt="30px"
         // backgroundImage={require("../assets/search_background.png")}
         // backgroundPosition="center"
@@ -97,7 +98,7 @@ const Search = () => {
         <Text textAlign="center" mb="20px">
           Friends
         </Text>
-        <Container overflow-x="auto">
+        <Container>
           <FriendsCard friends={friends} />
         </Container>
       </Container>
