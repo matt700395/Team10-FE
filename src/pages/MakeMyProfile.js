@@ -79,7 +79,7 @@ const MakeMyProfile = () => {
   };
 
   const [profileImage, setProfileImage] = useState(
-    "https://bit.ly/dan-abramov"
+    require("../assets/upload_image.png")
   );
   const fileInput = useRef(null);
 
@@ -100,7 +100,13 @@ const MakeMyProfile = () => {
   };
 
   return (
-    <Container centerContent>
+    <Container
+      centerContent
+      bgGradient="linear(to-b, #FFFCD7, #FFFFFF)"
+      w="100%"
+      h="100%"
+      p="0"
+    >
       <Header title="Make My Profile" />
 
       {/* 프로필 이미지 업로드 */}
@@ -127,7 +133,7 @@ const MakeMyProfile = () => {
       </Container>
 
       {/* my block */}
-      <Container mt="20px">
+      <Container mt="40px" w="80%" p="0px">
         <FormControl onSubmit={saveMyProfile}>
           <CategoryBlock
             info={info}
@@ -144,8 +150,10 @@ const MakeMyProfile = () => {
         leftIcon={<AddIcon />}
         onClick={onOpenAddModal}
         mt="20px"
+        w="80%"
+        backgroundColor="#AACB73"
       >
-        add block
+        Add Block
       </Button>
 
       {/* add block button modal */}
@@ -236,8 +244,18 @@ const MakeMyProfile = () => {
       </Modal>
 
       {/* save 버튼 */}
-      <Button display="block" onClick={onOpenSaveModal} mt="20px">
-        save
+      <Button
+        display="block"
+        onClick={onOpenSaveModal}
+        mt="50px"
+        backgroundColor="white"
+        _hover="none"
+        _active="none"
+      >
+        <Image
+          src={require("../assets/save_button.png")}
+          boxSize="60px"
+        ></Image>
       </Button>
 
       {/* 저장 확인 모달 */}

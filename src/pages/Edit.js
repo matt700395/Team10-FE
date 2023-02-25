@@ -110,7 +110,7 @@ const Edit = () => {
   };
 
   const [profileImage, setProfileImage] = useState(
-    "https://bit.ly/dan-abramov"
+    require("../assets/upload_image.png")
   );
   const fileInput = useRef(null);
 

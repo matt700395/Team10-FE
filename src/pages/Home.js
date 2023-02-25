@@ -4,12 +4,20 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <Flex justify="center" align="center" pt="100px" direction="column">
+    <Flex
+      justify="center"
+      align="center"
+      pt="100px"
+      direction="column"
+      bgGradient="linear(to-b, #FFFCD7, #FFFFFF)"
+      w="100%"
+      h="100%"
+    >
       <Text fontSize="5xl" textAlign="center">
         <Text color="#90DC61CC">Make My</Text>
         <Text color="#FEB2B2">Profile</Text>
       </Text>
-      <ButtonGroup mt="20px">
+      <ButtonGroup mt="50px">
         <Flex direction="column" alignItems="center">
           <Link to="/make-my-profile">
             <Button color="white" backgroundColor="#FEB2B2" mb="10px" w="280px">

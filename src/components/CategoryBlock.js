@@ -16,8 +16,7 @@ const CategoryBlock = ({ info, onRemove, addInfo, profile }) => {
       info &&
       info.map((info) => (
         <InputGroup key={info.category}>
-          <InputLeftAddon width="20%" children={info.category} />
-
+          <InputLeftAddon width="30%" children={info.category} />
           <Input
             type="text"
             name={info.category}
