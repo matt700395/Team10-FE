@@ -7,30 +7,60 @@ import {
   IconButton,
   Text,
   Flex,
+  Image,
+  Spacer,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 
 const Header = ({ title }) => {
   return (
-    <Flex direction="row" justify="center" align="center">
+    <Flex
+      backgroundColor="#FFDA00"
+      width="100%"
+      mb="50px"
+      justify="center"
+      align="center"
+    >
+      <Spacer />
       <Text fontSize="lg">{title}</Text>
+      <Spacer />
       <Menu>
         <MenuButton
           as={IconButton}
+          color="white"
           aria-label="Options"
           icon={<HamburgerIcon />}
           variant="none"
+          float="right"
         />
-        <MenuList>
+        <MenuList backgroundColor="#FDEE92">
           <Link to="/">
-            <MenuItem fontSize="sm">my page</MenuItem>
+            <MenuItem fontSize="sm" backgroundColor="#FDEE92" display="block">
+              <Image
+                src={require("./../assets/my_page_icon.png")}
+                margin="0 auto"
+              ></Image>
+              <Text textAlign="center">my page</Text>
+            </MenuItem>
           </Link>
           <Link to="/search">
-            <MenuItem fontSize="sm">search</MenuItem>
+            <MenuItem fontSize="sm" backgroundColor="#FDEE92" display="block">
+              <Image
+                src={require("./../assets/search_icon.png")}
+                margin="0 auto"
+              ></Image>
+              <Text textAlign="center">search</Text>
+            </MenuItem>
           </Link>
           <Link to="/">
-            <MenuItem fontSize="sm">my friends</MenuItem>
+            <MenuItem fontSize="sm" backgroundColor="#FDEE92" display="block">
+              <Image
+                src={require("./../assets/my_friends_icon.png")}
+                margin="0 auto"
+              ></Image>
+              <Text textAlign="center">my friends</Text>
+            </MenuItem>
           </Link>
         </MenuList>
       </Menu>
