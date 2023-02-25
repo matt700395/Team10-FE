@@ -1,5 +1,13 @@
 import React from "react";
-import { Card, CardBody, Text, Center, Image, Flex } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  Text,
+  Center,
+  Image,
+  Flex,
+  Spacer,
+} from "@chakra-ui/react";
 
 const FriendsCard = ({ friends }) => {
   const friendsCard =
@@ -11,12 +19,13 @@ const FriendsCard = ({ friends }) => {
           align="center"
           direction="row"
           justify="start"
-          width="180px"
+          width="160px"
           height="260px"
           backgroundColor="#FFFCD7"
           rounded="50px"
           border="6px solid #D9D9D9"
-          mr="8px"
+          mb="15px"
+          ml="5px"
         >
           <CardBody>
             <Text textAlign="center" key={friend.name}>
@@ -36,9 +45,11 @@ const FriendsCard = ({ friends }) => {
             </Center>
           </CardBody>
         </Card>
+
+        <Spacer />
       </>
     ));
-  return <Flex wrap="no-wrap">{friendsCard}</Flex>;
+  return <Flex wrap="wrap">{friendsCard}</Flex>;
 };
 
 export default FriendsCard;
