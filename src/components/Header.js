@@ -18,7 +18,6 @@ const Header = ({ title }) => {
     <Flex
       backgroundColor="#FFDA0059"
       width="100%"
-      mb="50px"
       justify="center"
       align="center"
     >
