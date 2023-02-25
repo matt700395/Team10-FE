@@ -141,7 +141,7 @@ const Edit = () => {
       <Header title="EDIT" />
 
       {/* 프로필 이미지 업로드 */}
-      <Container>
+      <Container mt="50px">
         <input
           type="file"
           style={{ display: "none" }}

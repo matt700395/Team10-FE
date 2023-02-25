@@ -10,22 +10,26 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import FriednsCard from "../components/FriednsCard";
+import FriendsCard from "../components/FriendsCard";
 import axios from "axios";
 
 const Search = () => {
   // my profile image
   const [profileImage, setProfileImage] = useState(
-    "https://bit.ly/dan-abramov"
+    require("../assets/profile.png")
   );
 
-  const [friends, setFriends] = useState();
+  const [friends, setFriends] = useState([
+    { name: "유빈", profileImage: require("../assets/profile.png") },
+    { name: "상우", profileImage: require("../assets/profile.png") },
+    { name: "지현", profileImage: require("../assets/profile.png") },
+  ]);
 
   const [keyword, setKeyword] = useState("");
 
   // 친구들 목록 가져오기
   useEffect(() => {
-    axios.get("/friends").then((response) => setFriends(response.data));
+    // axios.get("/friends").then((response) => setFriends(response));
   }, []);
 
   // search input event listener
@@ -35,20 +39,35 @@ const Search = () => {
 
   // search button click
   const onClick = () => {
-    axios
-      .get(`/friends?search=${keyword}`)
-      .then((response) => setFriends(response.data));
+    // axios
+    //   .get(`/friends?search=${keyword}`)
+    //   .then((response) => setFriends(response));
   };
 
   return (
-    <div>
+    <Container
+      centerContent
+      bgGradient="linear(to-b, #FFFCD7, #FFFFFF)"
+      maxW="100%"
+      w="100%"
+      h="100%"
+      m="0"
+      p="0"
+    >
       <Header title="Make My Profile" />
-      <Flex>
-        <Input placeholder="Basic usage" mr="5px" onChange={onChange} />
+
+      <Flex mt="20px" mb="30px">
+        <Input
+          placeholder="find your friend"
+          mr="5px"
+          onChange={onChange}
+          backgroundColor="white"
+        />
         <IconButton
           colorScheme="blue"
           aria-label="Search database"
           icon={<SearchIcon />}
+          backgroundColor="#AACB73"
           onClick={onClick}
         />
       </Flex>
@@ -68,11 +87,21 @@ const Search = () => {
       <Text textAlign="center">Username</Text>
 
       {/* 친구 목록 카드 */}
-      <Container maxW="md" overflow-x="auto">
-        <Text textAlign="center">Friends</Text>
-        <FriednsCard friends={friends} />
+      <Container
+        maxW="md"
+        mt="30px"
+        // backgroundImage={require("../assets/search_background.png")}
+        // backgroundPosition="center"
+        // backgroundSize="cover"
+      >
+        <Text textAlign="center" mb="20px">
+          Friends
+        </Text>
+        <Container overflow-x="auto">
+          <FriendsCard friends={friends} />
+        </Container>
       </Container>
-    </div>
+    </Container>
   );
 };
 
