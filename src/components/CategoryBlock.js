@@ -15,9 +15,17 @@ const CategoryBlock = ({ info, onRemove, addInfo, profile }) => {
     const profileInfo =
       info &&
       info.map((info) => (
-        <InputGroup key={info.category}>
-          <InputLeftAddon width="30%" children={info.category} />
+        <InputGroup key={info.category} size="sm">
+          <InputLeftAddon
+            width="34%"
+            children={info.category}
+            border="2px solid #FFDDDD"
+            backgroundColor="#FFDDDD"
+            pl="10px"
+          />
           <Input
+            pl="10px"
+            border="2px solid #FFDDDD"
             type="text"
             name={info.category}
             defaultValue={info.content}
@@ -30,8 +38,11 @@ const CategoryBlock = ({ info, onRemove, addInfo, profile }) => {
           {info.category !== "name" && (
             <InputRightElement width="4.5rem">
               <Button
-                h="1.75rem"
-                size="sm"
+                h="1.5rem"
+                size="lg"
+                ml="30px"
+                backgroundColor="transparent"
+                color="#CDE990"
                 onClick={() => onRemove(info.category)}
               >
                 <MinusIcon />
@@ -46,10 +57,18 @@ const CategoryBlock = ({ info, onRemove, addInfo, profile }) => {
     const infoList =
       info &&
       info.map((info) => (
-        <InputGroup key={info.category}>
-          <InputLeftAddon width="20%" children={info.category} />
+        <InputGroup key={info.category} size="sm">
+          <InputLeftAddon
+            pl="10px"
+            width="34%"
+            children={info.category}
+            border="2px solid #CDE990"
+            backgroundColor="#CDE990"
+          />
 
           <Input
+            pl="10px"
+            border="2px solid #CDE990"
             type="text"
             name={info.category}
             placeholder={info.category}
@@ -62,8 +81,11 @@ const CategoryBlock = ({ info, onRemove, addInfo, profile }) => {
           {info.category !== "name" && (
             <InputRightElement width="4.5rem">
               <Button
-                h="1.75rem"
-                size="sm"
+                h="1.5rem"
+                size="lg"
+                ml="30px"
+                backgroundColor="transparent"
+                color="#CDE990"
                 onClick={() => onRemove(info.category)}
               >
                 <MinusIcon />

@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/make-my-profile" element={<MakeMyProfile />} />
-        <Route path="edit" element={<Edit />} />
-        <Route path="search" element={<Search />} />
+        <Route path="/edit" element={<Edit />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Flex>
   );
