@@ -18,7 +18,6 @@ const Header = ({ title }) => {
     <Flex
       backgroundColor="#FFDA0059"
       width="100%"
-      mb="50px"
       justify="center"
       align="center"
     >
@@ -39,7 +38,7 @@ const Header = ({ title }) => {
           mr="10px"
         />
         <MenuList backgroundColor="#FDEE92" width="50%">
-          <Link to="/">
+          <Link to="/MyCard">
             <MenuItem
               fontSize="sm"
               backgroundColor="#FDEE92"

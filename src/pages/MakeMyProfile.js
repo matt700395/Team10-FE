@@ -111,7 +111,7 @@ const MakeMyProfile = () => {
       <Header title="만반잘부" />
 
       {/* 프로필 이미지 업로드 */}
-      <Container>
+      <Container mt="50px">
         <input
           type="file"
           style={{ display: "none" }}

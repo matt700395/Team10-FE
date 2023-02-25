@@ -5,6 +5,9 @@ import { Flex } from "@chakra-ui/react";
 import Edit from "./pages/Edit";
 import Search from "./pages/Search";
 import GlobalStyle from "./styles/GlobalStyle";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import MyCard from "./components/MyCard";
 
 function App() {
 
@@ -17,9 +20,9 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/make-my-profile" element={<MakeMyProfile />}  />
-        <Route path="/edit" element={<Edit />}  />
-        <Route path="/search" element={<Search />}  />
+        <Route path="/make-my-profile" element={<MakeMyProfile />} />
+        <Route path="/edit" element={<Edit />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Flex>
   );
