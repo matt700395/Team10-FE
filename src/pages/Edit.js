@@ -29,6 +29,7 @@ const Edit = () => {
     // axios.get("/mypage").then((response) => setProfile(response.data));
 
     setInfo(temp);
+
   }, []);
 
   /* 프로필 json 구성 변경 (서버와 연동 후 dummy->profile로 수정) */
@@ -57,7 +58,6 @@ const Edit = () => {
   }
 
   /* 프로필 json 구성 변경 */
-
   const {
     isOpen: isOpenAddModal,
     onOpen: onOpenAddModal,
@@ -129,6 +129,8 @@ const Edit = () => {
   };
 
   return (
+    <>
+
     <Container
       centerContent
       bgGradient="linear(to-b, #FFFCD7, #FFFFFF)"
@@ -331,6 +333,7 @@ const Edit = () => {
         </ModalContent>
       </Modal>
     </Container>
+    </>
   );
 };
 

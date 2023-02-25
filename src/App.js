@@ -7,14 +7,19 @@ import Search from "./pages/Search";
 import GlobalStyle from "./styles/GlobalStyle";
 
 function App() {
+
+  // var Airtable = require('airtable');
+  // var base = new Airtable({apiKey: 
+  //   'patrpSuf3uWydUhzB.e73259ec2fdb46c86877db7c20a94322ca15cd163ea2742d6fe6556983007281'}).base('appHtUVZtkAMqH1TT');
+
   return (
     <Flex align="center" justify="center">
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/make-my-profile" element={<MakeMyProfile />} />
-        <Route path="/edit" element={<Edit />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/make-my-profile" element={<MakeMyProfile />}  />
+        <Route path="/edit" element={<Edit />}  />
+        <Route path="/search" element={<Search />}  />
       </Routes>
     </Flex>
   );

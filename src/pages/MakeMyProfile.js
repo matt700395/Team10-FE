@@ -283,7 +283,10 @@ const MakeMyProfile = () => {
             <Text align="center">Want to save profile?</Text>
           </ModalBody>
           <ModalFooter m="0 auto" mb="20px">
-            <Link to='/edit'>
+            <Link to={{pathname:'/edit',
+                        state: {info},
+                      }}>
+                      
               <Button
                 onClick={() => {
                   onCloseSaveModal();
