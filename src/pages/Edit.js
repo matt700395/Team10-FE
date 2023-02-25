@@ -9,7 +9,6 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
   ModalCloseButton,
   ModalBody,
   Text,
@@ -17,7 +16,6 @@ import {
   ModalFooter,
   FormControl,
 } from "@chakra-ui/react";
-import { AddIcon } from "@chakra-ui/icons";
 import CategoryBlock from "../components/CategoryBlock";
 import axios from "axios";
 import dummy from "../test.json";
@@ -91,9 +89,9 @@ const Edit = () => {
     // request 구성
     const name = info.find((info) => info.category === "name");
 
-    const tag = {};
+    const tag = [];
     for (let i = 1; i < info.length; i++) {
-      tag[info[i].category] = info[i].content;
+      tag.push({ tagName: info[i].category, tagContent: info[i].content });
     }
 
     const request = {
@@ -131,7 +129,15 @@ const Edit = () => {
   };
 
   return (
-    <Container centerContent>
+    <Container
+      centerContent
+      bgGradient="linear(to-b, #FFFCD7, #FFFFFF)"
+      maxW="100%"
+      width="100%"
+      h="100%"
+      m="0"
+      p="0"
+    >
       <Header title="EDIT" />
 
       {/* 프로필 이미지 업로드 */}
@@ -158,7 +164,7 @@ const Edit = () => {
       </Container>
 
       {/* my block */}
-      <Container mt="20px">
+      <Container mt="40px" w="80%" p="0px">
         <FormControl onSubmit={saveMyProfile}>
           <CategoryBlock
             info={info}
@@ -171,24 +177,41 @@ const Edit = () => {
 
       {/* add block 버튼 */}
       <Button
-        display="block"
-        leftIcon={<AddIcon />}
+        display="flex"
         onClick={onOpenAddModal}
         mt="20px"
+        w="80%"
+        backgroundColor="#FFD4D4"
+        borderRadius="10px"
+        fontSize="1xl"
       >
-        add block
+        <Image
+          src={require("../assets/plus_icon.png")}
+          display="inline"
+          w="25px"
+          ml="10px"
+          mr="20px"
+        />
+        <Text
+          display="inline"
+          mr="auto"
+          olor="white"
+          fontWeight="light"
+          pt="2px"
+        >
+          Add Block
+        </Text>
       </Button>
 
       {/* add block button modal */}
       <Modal isOpen={isOpenAddModal} onClose={onCloseAddModal} isCentered>
         <ModalOverlay />
-        <ModalContent width="400px">
-          <ModalHeader>add block</ModalHeader>
+        <ModalContent width="80%" pt="20px">
           <ModalCloseButton onClick={onCloseAddModal} />
-          <ModalBody width="95%" m="0 auto" mb="20px">
+          <ModalBody m="0 auto" mb="20px">
             <Container>
-              <Text>about my self</Text>
-              <Flex wrap="wrap" justify="space-between" mt="10px">
+              <Text>기본정보</Text>
+              <Flex wrap="wrap" justify="space-between" mt="5px">
                 <Button
                   width="30%"
                   onClick={(category) => {
@@ -248,18 +271,18 @@ const Edit = () => {
                 </Button>
               </Flex>
             </Container>
-            <Container mt="20px">
-              <Text>what to add</Text>
-              <Flex wrap="wrap" justify="space-between" mt="10px">
-                <Button width="30%">random</Button>
-                <Button width="30%">random</Button>
-                <Button width="30%">random</Button>
+            <Container mt="25px">
+              <Text>TMI</Text>
+              <Flex wrap="wrap" justify="space-between" mt="5px">
+                <Button width="30%">TMI 1</Button>
+                <Button width="30%">TMI 2</Button>
+                <Button width="30%">TMI 3</Button>
               </Flex>
             </Container>
-            <Container mt="20px">
-              <Text>create my own</Text>
-              <Button width="30%" leftIcon={<AddIcon />} mt="10px">
-                create
+            <Container mt="25px">
+              <Text>커스텀</Text>
+              <Button width="30%" mt="5px">
+                <Image src={require("../assets/plus_icon.png")} w="20px" />
               </Button>
             </Container>
           </ModalBody>
@@ -267,8 +290,18 @@ const Edit = () => {
       </Modal>
 
       {/* save 버튼 */}
-      <Button display="block" onClick={onOpenSaveModal} mt="20px">
-        save
+      <Button
+        display="block"
+        onClick={onOpenSaveModal}
+        mt="50px"
+        backgroundColor="white"
+        _hover="none"
+        _active="none"
+      >
+        <Image
+          src={require("../assets/save_button.png")}
+          boxSize="60px"
+        ></Image>
       </Button>
 
       {/* 저장 확인 모달 */}
